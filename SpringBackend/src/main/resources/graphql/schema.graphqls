@@ -1,0 +1,30 @@
+type Vitals {
+    topic: String!
+    heartRate: Int!
+    spo2: Int!
+    bodyTemp: Float!
+    ledStatus: Int!
+    sos: Boolean!
+    isActive: Boolean!
+}
+type FactoryData {
+    topic: String!
+    temperature: Float!
+    humidity: Float!
+    aqiScore: Int!
+    co2Ppm: Float!
+    benzenePpm: Float!
+    ammoniaPpm: Float!
+    alcoholPpm: Float!
+}
+type Mutation {
+    sendVitals( topic: String!,heartRate: Int!,spo2: Int!,bodyTemp: Float!,ledStatus: Int!,sos: Boolean!, isActive: Boolean!): Vitals!
+    sendFactoryData( topic: String!,temperature: Float!,humidity: Float!,aqiScore: Int!,co2Ppm: Float!,benzenePpm: Float!,ammoniaPpm: Float!,alcoholPpm: Float!): FactoryData!
+}
+type Query {
+    dummy: String
+}
+type Subscription {
+    vitalUpdates(topic:String!): Vitals!
+    factoryDataUpdates(topic:String!): FactoryData!
+}
